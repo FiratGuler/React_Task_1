@@ -1,14 +1,14 @@
-import  SiteContext  from "../Context/siteContext"
+import SiteContext from "../Context/siteContext"
 import Home from "./Home"
 import Navbar from "./NavBar"
 
 
-export default function App(){
+export default function App() {
 
-    return(
+    return (
         <SiteContext>
-            <Navbar/>
-            <Home/>
+            <Navbar />
+            <Home />
         </SiteContext>
 
     )

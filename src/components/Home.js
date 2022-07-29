@@ -1,5 +1,7 @@
 import { useSite } from "../Context/siteContext"
 import Contents from "./Content"
+import Sorting from "./Sorting"
+import AddNewContent from "./AddNewContent"
 
 export default function Home() {
 
@@ -17,9 +19,14 @@ export default function Home() {
         <>
             {(show && <button onClick={ShowBTN} className="test"><b>+</b>Submit A Link</button> )|| <button onClick={HideBTN}>Return</button>}
 
-            {show &&
+            {(show &&
                 <div>
+                    <Sorting/>
                     <Contents />
+                </div>)
+                ||
+                <div>
+                    <AddNewContent/>
                 </div>
             }
         </>
