@@ -6,7 +6,7 @@ import { MainContext } from "./context";
 import React from "react";
 
 
-import Mesaj from "./mesaj";
+
 
 class App extends React.Component {
 
@@ -28,10 +28,10 @@ class App extends React.Component {
         ],
 
     }
-    deneme= this.state.content
+    deneme = this.state.content
 
     data = {
-        
+
     }
     render() {
 
@@ -41,7 +41,7 @@ class App extends React.Component {
                 <NavBar />
                 <SubmitSwitcher />
                 <Content />
-           <Mesaj/>
+
                 <AddNewContent />
             </MainContext.Provider>
         )
