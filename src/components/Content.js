@@ -1,60 +1,28 @@
 import React from 'react';
-import serialize from 'form-serialize';
+import { useSite } from '../Context/siteContext';
 
-class Content extends React.Component {
 
-    //  AddContentSubmit = (e) => {
+export default function Contents() {
+
+    const {Content} = useSite()
+
+    // const SubmitHandle = (e) => {
     //     e.preventDefault()
-    //     const newContent = serialize(e.target, { hash: true });
-    //     props.AddContentSubmit(newContent);
     // }
-    state = {
-
-        content: [
-            {
-                "id": 1,
-                "name": "The Matrix 3",
-                "rating": "8.1",
-                "siteURL": "www.ornek.com"
-            },
-            {
-                "id": 2,
-                "name": "The Matrix 2",
-                "rating": "5.1",
-                "siteURL": "www.ornek.com"
-            }
-        ],
-
-    }
-    BTN = (e) => {
-        e.preventDefault();
-        const newContent = serialize(e.target, { hash: true });
-        this.setState({content : this.state.content.concat(newContent)})
-        console.log(this.state.content)
-    }
 
 
-    render() {
-        return (
-            <>
-                <form onSubmit={this.BTN} >
-                    {this.state.content.map((content) =>
 
-                        <div key={content.id}>
+    return (
+        <>
+            {Content.icerik.map((icerik,index)=>(
+                <div key={index} style={{border:'1px solid red',width:150 , margin: 10}}>
+                    <div>ADI :{icerik.name}</div>
+                    <div>URL :{icerik.url}</div>
+                    <div>PUAN : {icerik.rating}</div>
+                    <br/>
+                </div>
+            ))}
 
-                            <input type="text" name='name' placeholder='name'></input>
-                            <input type="text" name='rating' placeholder='rating'></input>
-                            <input type="text" name='siteURL' placeholder='siteURL'></input>
-                           
-                        </div>
-
-                    )}
-                     <button >YEP</button>
-                </form>
-
-
-            </>
-        )
-    }
+        </>
+    )
 }
-export default Content 
