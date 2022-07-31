@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, } from "react";
 
 
 const Context = createContext()
@@ -24,10 +24,10 @@ const Provider = ({ children }) => {
         ]
     }
     )
+   
 
+  
 
-    const [Sorted, setSorted] = useState(false)
-    console.log(Sorted)
 
     const [show, setShow] = useState(true)
 
@@ -36,8 +36,9 @@ const Provider = ({ children }) => {
         setShow,
         Content,
         setContent,
-        Sorted,
-        setSorted
+        // Sorted,
+        // setSorted,
+
     }
 
     return (

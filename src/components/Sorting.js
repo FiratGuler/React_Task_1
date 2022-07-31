@@ -5,11 +5,12 @@ export default function Sorting() {
 
 
 
-    const {  setSorted } = useSite()
+    const {setSorted } = useSite()
    
     const SortedChange = (e) => {
-        const select = e.target.value;
-        setSorted(select)
+        console.log(e.target.value)
+        setSorted(e.target.value)
+    
     }
     return (
         <>
