@@ -12,7 +12,7 @@ export default function NewAddContent() {
     const { setContent, Content} = useSite()
 
 
-    const deger=1;
+    
     const HandleFormSubmit = (e) => {
         e.preventDefault()
         const newArr = serialize(e.target, { hash: true });
@@ -29,7 +29,6 @@ export default function NewAddContent() {
             <input type="text" name="name" placeholder="İsim"></input>
             <input type="text" name="url" placeholder="Url"></input>
             <input type="text" name="rating" placeholder="rating" ></input>
-
             <button type="submit">ADD</button>
         </form>
     )
