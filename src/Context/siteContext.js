@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, } from "react";
+import { createContext, useContext, useState } from "react";
 
 
 const Context = createContext()
@@ -7,8 +7,8 @@ const Context = createContext()
 
 const Provider = ({ children }) => {
 
-    const [Content, setContent] = useState({
-        ContentArr: [
+    const [Content, setContent] = useState(
+         [
             {
                 "id": 1,
                 "name": "The Matrix 3",
@@ -22,13 +22,9 @@ const Provider = ({ children }) => {
                 "url": "www.ornek.com"
             }
         ]
-    }
+    
     )
    
-
-  
-
-
     const [show, setShow] = useState(true)
 
     const data = {
@@ -36,6 +32,8 @@ const Provider = ({ children }) => {
         setShow,
         Content,
         setContent,
+       
+
         // Sorted,
         // setSorted,
 
