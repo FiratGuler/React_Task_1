@@ -17,7 +17,6 @@ export default function NewAddContent() {
         e.preventDefault()
         const newArr = serialize(e.target, { hash: true });
         const concatArr = Content.concat(newArr)
-        console.log(concatArr);
          setContent(concatArr)
 
 
