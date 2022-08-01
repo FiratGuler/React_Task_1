@@ -5,11 +5,14 @@ export default function Sorting() {
 
 
 
-    const {setSorted } = useSite()
+    const {Content,setContent } = useSite()
    
     const SortedChange = (e) => {
-        console.log(e.target.value)
-        setSorted(e.target.value)
+        const Options ={
+            "Most": [...Content].sort((a, b) => (a.rating < b.rating ? 1 : -1)),
+            "Less": [...Content].sort((a, b) => (a.rating < b.rating ? -1 : 1))
+        }
+        setContent(Options[e.target.value])
     
     }
     return (

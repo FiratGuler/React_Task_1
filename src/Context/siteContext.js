@@ -12,13 +12,19 @@ const Provider = ({ children }) => {
             {
                 "id": 1,
                 "name": "The Matrix 3",
-                "rating": "8.1",
+                "rating": 8,
                 "url": "www.ornek.com"
             },
             {
                 "id": 2,
                 "name": "The Matrix 2",
-                "rating": "5.1",
+                "rating": 2.1,
+                "url": "www.ornek.com"
+            },
+            {
+                "id": 3,
+                "name": "The Matrix 4",
+                "rating": 5.1,
                 "url": "www.ornek.com"
             }
         ]
