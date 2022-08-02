@@ -30,18 +30,21 @@ const Provider = ({ children }) => {
         ]
     
     )
-
+    const [SortedInf,setSortedInf]=useState(true)
     
     const [show, setShow] = useState(true)
-  
+
+    
+
 
     const data = {
         show,
         setShow,
         Content,
         setContent,
-      
-
+        SortedInf,
+        setSortedInf,
+       
     }
 
     return (

@@ -1,3 +1,14 @@
-.test{
-    color: blue;
+.BTN_return{
+    background-color: transparent;
+    border: none;
+    float: left;
+    width: 80px;
+}
+.custom-select{
+    margin-top: 5%;
+    margin-bottom: 3%;
+    background-color: #6c757d;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
 }

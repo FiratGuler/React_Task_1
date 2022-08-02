@@ -3,10 +3,13 @@ import Contents from "./Content"
 import Sorting from "./Sorting"
 import AddNewContent from "./AddNewContent"
 
-import { Container, Row, Col,Button } from 'react-bootstrap';
+
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 
 export default function Home() {
+
+
 
     const { show, setShow } = useSite()
 
@@ -16,13 +19,16 @@ export default function Home() {
 
     return (
         <Container>
-            <Row>
-                <Col>
-                    
-                    {(show &&
-                        <Button variant="primary" onClick={() => { setShow(!show) }}><b>+</b>Submit A Link</Button>)
-                        ||
-                        <button onClick={() => { setShow(!show) }}>Return</button>}
+            <Row className="p-2">
+                <Col md={3}></Col>
+
+                <Col md={6}>
+                    <Container className="d-grid p-3 border-bottom border-3">
+                        {(show &&
+                            <Button variant="secondary" onClick={() => { setShow(!show) }}><h1>+ Submit a Link</h1></Button>)
+                            ||
+                            <button className="BTN_return" onClick={() => { setShow(!show) }}> Return</button>}
+                    </Container>
 
                     {(show &&
                         <div>
@@ -34,7 +40,9 @@ export default function Home() {
                             <AddNewContent />
                         </div>
                     }
+
                 </Col>
+                <Col md={3}></Col>
             </Row>
         </Container>
     )
