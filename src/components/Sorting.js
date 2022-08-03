@@ -6,20 +6,21 @@ export default function Sorting() {
 
 
 
-    const { Content, setContent,SortedInf,setSortedInf } = useSite()
-    
-    
-    
+    const { Content, setContent, SortedInf, setSortedInf } = useSite()
+
+
+
 
     const SortedChange = (e) => {
         const Options = {
-            "OrderBy":[...Content].sort((a, b) => (a.rating < b.rating ? 1 : -1)),
-            "Most": [...Content].sort((a, b) => (a.rating < b.rating ? 1 : -1)),
-            "Less": setSortedInf(!SortedInf)
+            
+            "OrderBy":[...Content].sort((a, b) => (a.rating < b.rating ? -1 : 1)),
+            "Most": [...Content].sort((a, b) => (a.rating < b.rating ? -1 : 1)),
+            "Less": [...Content].sort((a, b) => (a.rating < b.rating ? 1 : -1)),
             
         }
-        
-        
+
+        setSortedInf(!SortedInf)
         setContent(Options[e.target.value])
 
     }

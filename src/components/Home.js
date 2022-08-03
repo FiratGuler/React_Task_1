@@ -5,7 +5,7 @@ import AddNewContent from "./AddNewContent"
 
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
-
+import { ArrowLeft,PlusSquare } from 'react-bootstrap-icons';
 
 export default function Home() {
 
@@ -22,12 +22,12 @@ export default function Home() {
             <Row className="p-2">
                 <Col md={3}></Col>
 
-                <Col md={6}>
-                    <Container className="d-grid p-3 border-bottom border-3">
+                <Col  md={6}>
+                    <Container className="d-grid p-2 border-bottom border-3">
                         {(show &&
-                            <Button variant="secondary" onClick={() => { setShow(!show) }}><h1>+ Submit a Link</h1></Button>)
+                            <Button className="btn-secondary text-dark BackgroundMY fs-1 p-3" onClick={() => { setShow(!show) }}><PlusSquare/> Submit a Link</Button>)
                             ||
-                            <button className="BTN_return" onClick={() => { setShow(!show) }}> Return</button>}
+                            <button className="BTN_return text-dark" onClick={() => { setShow(!show) }}><ArrowLeft/> Return to List</button>}
                     </Container>
 
                     {(show &&

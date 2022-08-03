@@ -12,7 +12,7 @@ export default function NewAddContent() {
 
     const { setContent, Content } = useSite()
 
-   
+
 
     const HandleFormSubmit = (e) => {
         e.preventDefault()
@@ -21,47 +21,57 @@ export default function NewAddContent() {
         console.log(concatArr)
         setContent(concatArr)
     }
+    setInterval(() => {
+        setShow(false)
+    }, 4000)
+
+    const ArrDim =Content.length+1
+  
+
     const [show, setShow] = useState(false);
-
-
-
+    
+   
     return (
-        <Container >
+        <>
+            <Container >
+                <Row className="fs-3 mt-4 mb-4">
+                    <b>Add New Link</b>
+                </Row>
 
-            <Row>
-                <Form onSubmit={HandleFormSubmit}>
-                    <Form.Group className="mb-2" >
-                        <Form.Label htmlFor="name" >Link Name:</Form.Label>
-                        <Form.Control id="name" name="name" placeholder="Link Name" />
-                    </Form.Group>
-                    <Form.Group className="mb-2">
-                        <Form.Label htmlFor="url">Link URL:</Form.Label>
-                        <Form.Control id="url" name="url" placeholder="Link URL" />
-                    </Form.Group>
-                    <Form.Group className="mb-2">
-                        <Form.Label htmlFor="rating">Rating</Form.Label>
-                        <Form.Control type="number" id="rating" name="rating" placeholder="Disabled input"  />
-                    </Form.Group>
+                <Row>
+                    <Form onSubmit={HandleFormSubmit} >
+                        <Form.Group className="mb-3" >
+                            <Form.Label htmlFor="name" >Link Name:</Form.Label>
+                            <Form.Control id="name" className="border-dark" name="name" placeholder="Link Name" />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label htmlFor="url">Link URL:</Form.Label>
+                            <Form.Control className="border-dark" id="url" name="url" placeholder="Link URL" />
+                        </Form.Group>
 
-                    <Button type="submit" onClick={() => setShow(!show)}>Submit</Button>
+                        <Form.Control className="visually-hidden" id="rating" name="rating" defaultValue={1}  />
+                        <Form.Control className="visually-hidden" id="id" name="id" defaultValue={ArrDim}  />
 
 
 
-                </Form>
+                        <Button className="float-end rounded-5 lg" variant="dark" type="submit" onClick={() => setShow(!show)}>Submit</Button>
+                        
 
-            </Row>
-            {show &&
-                <Alert show={show} className='position-absolute top-0 start-50 translate-middle-x m-5' variant="success">
-                    <b>STACK OVERFLOW</b> added.
-                </Alert>}
 
-        </Container >
-        // <form onSubmit={HandleFormSubmit}>
-        //     <input type="text" name="name" placeholder="İsim"></input>
-        //     <input type="text" name="url" placeholder="Url"></input>
-        //     <input type="text" name="rating" placeholder="rating" ></input>
-        //     <button type="submit">ADD</button>
-        // </form>
+
+                    </Form>
+
+                </Row>
+                {show &&
+                    <Alert show={show} className='position-absolute top-0 start-50 translate-middle-x m-5' variant="success">
+                        <b>STACK OVERFLOW</b> added.
+                    </Alert>}
+
+            </Container >
+
+        </>
     )
 
+
 }
+

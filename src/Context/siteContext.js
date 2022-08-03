@@ -17,20 +17,20 @@ const Provider = ({ children }) => {
             },
             {
                 id: 2,
-                name: "The Matrix 2",
+                name: "Cars",
                 rating: 2,
                 url: "www.ornek.com"
             },
             {
                 id: 3,
-                name: "The Matrix 4",
+                name: "Who Am I",
                 rating: 5,
                 url: "www.ornek.com"
             }
         ]
     
     )
-    const [SortedInf,setSortedInf]=useState(true)
+    const [SortedInf,setSortedInf]=useState(false)
     
     const [show, setShow] = useState(true)
 
@@ -44,6 +44,7 @@ const Provider = ({ children }) => {
         setContent,
         SortedInf,
         setSortedInf,
+        
        
     }
 

@@ -1,14 +1,23 @@
+.BackgroundMY{
+    background-color: #eeeee0 !important;
+   
+}
+
+
+
 .BTN_return{
     background-color: transparent;
     border: none;
     float: left;
-    width: 80px;
+    width: 140px;
+    font-weight: bold;
 }
 .custom-select{
     margin-top: 5%;
     margin-bottom: 3%;
-    background-color: #6c757d;
-    color: white;
+    background-color: #eeeee0;
+   
     padding: 10px;
     border-radius: 6px;
 }
+
