@@ -34,7 +34,7 @@ const Provider = ({ children }) => {
     
     const [show, setShow] = useState(true)
 
-    
+    const SortedContent = Content.sort(SortedInf === true ? ((a, b) => (a.rating - b.rating)) : (a, b) => (b.rating - a.rating))
 
 
     const data = {
@@ -44,6 +44,7 @@ const Provider = ({ children }) => {
         setContent,
         SortedInf,
         setSortedInf,
+        SortedContent
         
        
     }

@@ -1,23 +1,55 @@
-.BackgroundMY{
+.BackgroundMY {
     background-color: #eeeee0 !important;
-   
+
 }
 
 
 
-.BTN_return{
+.BTN_return {
     background-color: transparent;
     border: none;
     float: left;
     width: 140px;
+
     font-weight: bold;
 }
-.custom-select{
+
+.custom-select {
     margin-top: 5%;
     margin-bottom: 3%;
     background-color: #eeeee0;
-   
+
     padding: 10px;
     border-radius: 6px;
 }
 
+
+.pagination a {
+    background-color: transparent ;
+    border: 0;
+    color: black;
+    margin: 10px;
+}
+.pagination a:hover{
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+}
+.active a{
+    background-color: transparent !important;
+    border-style: solid; 
+    border-width: 1px;
+    border-color: black !important;
+    border-radius: 5px;
+    color: black !important;
+   
+}
+.BTN_pagi{
+    border:0 ;
+}
+.BTN_pagi:hover{
+    border:0;
+    
+    color: black;
+   
+}
