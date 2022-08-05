@@ -2,7 +2,7 @@ import { React, useState, useRef, useEffect } from 'react';
 import { useSite } from '../Context/siteContext';
 import PaginationComp from "./PaginationComp";
 
-import { Container, Col, Row, Card, Button, Modal, Alert } from 'react-bootstrap';
+import { Container, Col, Row, Card, Button, Modal, Alert,Fade } from 'react-bootstrap';
 import { ArrowUp, ArrowDown } from 'react-bootstrap-icons';
 
 
@@ -80,14 +80,12 @@ export default function Contents() {
     const totalPagesNum = Math.ceil(SortedContent.length / ContentPerPage)
 
 
-    const [style, setStyle] = useState({ display: 'none' });
+    const [open, setOpen] = useState(false);
 
-    const [deleteShowcont, setdeleteShowcont] = useState(true)
+   
 
-    const DeleteShow = () => {
-        setdeleteShowcont(!deleteShowcont)
-        deleteShowcont === true ? setStyle({ display: 'block' }) : setStyle({ display: 'none' })
-    }
+
+
     return (
 
         <Container>
@@ -95,7 +93,7 @@ export default function Contents() {
                 <div ref={parent} >
                     {currentContent.map((content) => (
 
-                        <Container key={content.id} className="my-3" onClick={DeleteShow}>
+                        <Container key={content.id} className="my-3" onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}  >
 
                             <Row className="Content_div">
                                 <Col lg="2" className='border rounded border-3 text-center BackgroundMY pt-3'>
@@ -108,9 +106,11 @@ export default function Contents() {
                                         <Card.Body>
 
                                             <Card.Title >{content.name}
-
-                                                <Button className='float-end btn-danger rounded-circle' style={style} size="sm" onClick={() => setBoxId(content.id, content.name)}>-</Button>
-
+                                                <Fade in={open}>
+                                                    <div id="example-collapse-text">
+                                                        <Button className='float-end btn-danger rounded-circle'  size="md" onClick={() => setBoxId(content.id, content.name)}>-</Button>
+                                                    </div>
+                                                </Fade>
                                             </Card.Title>
                                             <Card.Link>{content.url}</Card.Link>
                                             <Card.Text>
