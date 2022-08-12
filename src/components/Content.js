@@ -2,7 +2,7 @@ import { React, useState, useRef, useEffect } from 'react';
 import { useSite } from '../Context/siteContext';
 import PaginationComp from "./PaginationComp";
 
-import { Container, Col, Row, Card, Button, Modal, Alert,Fade } from 'react-bootstrap';
+import { Container, Col, Row, Card, Button, Modal, Alert, Fade } from 'react-bootstrap';
 import { ArrowUp, ArrowDown } from 'react-bootstrap-icons';
 
 
@@ -11,7 +11,7 @@ import autoAnimate from '@formkit/auto-animate'
 
 export default function Contents() {
 
-    const { SortedContent, setContent } = useSite()
+    const { SortedContent, Content,setContent,setOpen,open } = useSite()
 
 
     const parent = useRef(null)
@@ -24,7 +24,7 @@ export default function Contents() {
         setContent(SortedContent.map(u => u === content ? (
             {
                 ...u,
-                rating: parseInt(u.rating + 1),
+                rating: parseInt(u.rating) +1,
             }
         ) : u))
 
@@ -36,7 +36,7 @@ export default function Contents() {
         setContent(SortedContent.map(u => u === content ? (
             {
                 ...u,
-                rating: u.rating - 1
+                rating: parseInt(u.rating) - 1
 
             }
 
@@ -72,18 +72,25 @@ export default function Contents() {
     const [deleteName, setdeleteName] = useState();
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [ContentPerPage] = useState(2)
+    const [ContentPerPage] = useState(3)
 
     const indexOfLastContent = currentPage * ContentPerPage;
     const indexOfFirstContent = indexOfLastContent - ContentPerPage;
     const currentContent = SortedContent.slice(indexOfFirstContent, indexOfLastContent);
     const totalPagesNum = Math.ceil(SortedContent.length / ContentPerPage)
 
-
-    const [open, setOpen] = useState(false);
-
-   
-
+    
+     const DeleteShow= (id)=>{
+         const newState = Content.map(obj=>{
+             if(obj.id=== id){
+               
+                 return {...obj, clicked : !obj.clicked }
+             }
+             return obj
+         })
+         setContent(newState)
+         console.log(newState)
+     }
 
 
     return (
@@ -93,7 +100,7 @@ export default function Contents() {
                 <div ref={parent} >
                     {currentContent.map((content) => (
 
-                        <Container key={content.id} className="my-3" onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}  >
+                        <Container key={content.id} className="my-3"  >
 
                             <Row className="Content_div">
                                 <Col lg="2" className='border rounded border-3 text-center BackgroundMY pt-3'>
@@ -104,18 +111,23 @@ export default function Contents() {
                                     <Card className="border-0 ">
 
                                         <Card.Body>
+                                             <div onClick={()=>DeleteShow(content.id)} >
+                                            
 
-                                            <Card.Title >{content.name}
-                                                <Fade in={open}>
-                                                    <div id="example-collapse-text">
-                                                        <Button className='float-end btn-danger rounded-circle'  size="md" onClick={() => setBoxId(content.id, content.name)}>-</Button>
-                                                    </div>
-                                                </Fade>
-                                            </Card.Title>
-                                            <Card.Link>{content.url}</Card.Link>
-                                            <Card.Text>
+                                                    <Card.Title >{content.name}
+                                                        
+                                                            {content.clicked  
+                                                            ?<Button className='float-end btn-danger rounded-circle ' size="md" onClick={() => setBoxId(content.id, content.name)}>-</Button>
+                                                            :<></>
+                                                            }
+                                                        
+                                                    </Card.Title>
+                                                
+                                                <Card.Link>{content.url}</Card.Link>
+                                                <Card.Text>
 
-                                            </Card.Text>
+                                                </Card.Text>
+                                            </div> 
                                             <Button variant='muted' className='float-start text-black' onClick={() => UpVote(content)}><ArrowUp /> Up Vote</Button>
                                             <Button variant='muted' className='float-end' onClick={() => DownVote(content)}><ArrowDown />Down Vote</Button>
 
@@ -160,12 +172,14 @@ export default function Contents() {
 
 
             </Row>
-            {alertShow &&
+            {
+                alertShow &&
                 <Alert show={alertShow} className='position-absolute top-0 start-50 translate-middle-x m-5' variant="success">
 
                     <b>{deleteName}</b> removed.
-                </Alert>}
-        </Container>
+                </Alert>
+            }
+        </Container >
     )
 
 
